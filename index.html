@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hilfekarten</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f4f6f8;
+      color: #17212b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(1rem, 4vw, 3rem);
+    }
+
+    main {
+      width: min(100%, 900px);
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 .4rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+    }
+
+    .intro {
+      margin: 0 0 1.6rem;
+      color: #506070;
+      font-size: clamp(1rem, 2.3vw, 1.2rem);
+    }
+
+    .karten {
+      display: grid;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    details {
+      overflow: hidden;
+      border: 2px solid var(--farbe);
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 5px 18px rgb(20 30 40 / 8%);
+    }
+
+    details:nth-child(1) { --farbe: #239b56; --hell: #e9f7ef; }
+    details:nth-child(2) { --farbe: #83ad25; --hell: #f2f8e5; }
+    details:nth-child(3) { --farbe: #e5a900; --hell: #fff8df; }
+    details:nth-child(4) { --farbe: #d8453e; --hell: #fdecea; }
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-height: 5.2rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      list-style: none;
+      background: var(--hell);
+      font-size: clamp(1.15rem, 3vw, 1.45rem);
+      font-weight: 750;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .nummer {
+      display: grid;
+      flex: 0 0 2.8rem;
+      width: 2.8rem;
+      height: 2.8rem;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--farbe);
+      color: white;
+    }
+
+    .kartentitel {
+      display: grid;
+      gap: .2rem;
+    }
+
+    .kartentitel small {
+      color: #536170;
+      font-size: .72em;
+      font-weight: 650;
+    }
+
+    .pfeil {
+      margin-left: auto;
+      font-size: 1.5rem;
+      transition: transform .2s ease;
+    }
+
+    details[open] .pfeil { transform: rotate(180deg); }
+
+    .inhalt {
+      padding: 1.25rem 1.5rem 1.5rem;
+      border-top: 2px solid var(--farbe);
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+      line-height: 1.55;
+    }
+
+    .inhalt p { margin: 0; }
+    .inhalt p + p { margin-top: 1rem; }
+
+    summary:focus-visible {
+      outline: 4px solid #1d70b8;
+      outline-offset: -4px;
+    }
+
+    @media (min-width: 700px) {
+      .karten { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pfeil { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hilfekarten</h1>
+    <p class="intro">Öffne zunächst Tipp 1. Nutze den nächsten Tipp nur, wenn du noch Hilfe brauchst.</p>
+
+    <section class="karten" aria-label="Vier aufklappbare Hilfekarten">
+      <details>
+        <summary>
+          <span class="nummer">1</span>
+          <span class="kartentitel"><small>Hilfekarte 1</small>Wie findet man ein Maximum?</span>
+          <span class="pfeil" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="inhalt">
+          <p>Ihr habt bereits gelernt, wie man Hochpunkte von Funktionen bestimmen kann.</p>
+          <p>Überlegt, wie ihr dieses Verfahren bei der Schachtel anwenden könnt. Was benötigt ihr dafür?</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="nummer">2</span>
+          <span class="kartentitel"><small>Hilfekarte 2</small>Das Volumen mathematisch beschreiben</span>
+          <span class="pfeil" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="inhalt">
+          <p>Erinnert euch an die Formel zur Berechnung des Volumens eines Quaders.</p>
+          <p>Bezeichnet die Höhe der Schachtel mit x und die Seitenlänge ihrer quadratischen Grundfläche mit a. Stellt damit eine Formel für das Volumen auf.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="nummer">3</span>
+          <span class="kartentitel"><small>Hilfekarte 3</small>Zwei Größen – ein Zusammenhang</span>
+          <span class="pfeil" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="inhalt">
+          <p>Die Höhe x und die Seitenlänge a können nicht unabhängig voneinander gewählt werden.</p>
+          <p>Betrachtet das ursprüngliche Pappquadrat: Was wird an jeder Seite entfernt, wenn die Ecken ausgeschnitten werden?</p>
+          <p>Stellt einen Zusammenhang zwischen a und x auf.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          <span class="nummer">4</span>
+          <span class="kartentitel"><small>Zusatzhilfe</small>Wenn ihr weiterhin nicht weiterkommt</span>
+          <span class="pfeil" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="inhalt">
+          <p>An jeder Seite der Pappe werden zweimal x Zentimeter entfernt. Es gilt daher:</p>
+          <p><strong>a = 20 − 2x</strong></p>
+          <p>Ersetzt a in eurer Volumenformel durch diesen Ausdruck.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+</body>
+</html>
